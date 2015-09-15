@@ -2,7 +2,7 @@ package ifpe;
 import robocode.*;
 import java.awt.*;
 
-import robocode.Robot;
+//import robocode.Robot;
 import robocode.ScannedRobotEvent;
 
 
@@ -12,36 +12,26 @@ import robocode.ScannedRobotEvent;
 /**
  * TricolorGuerreiro - a robot by Pedro H M Santos <phmsanttos@gmail.com>
  */
-public class TricolorGuerreiro extends Robot
+public class TricolorGuerreiro extends AdvancedRobot
 {
 	/**
 	 * run: TricolorGuerreiro's default behavior
 	 */
 	public void run() {
-		// Initialization of the robot should be put here
-
-		// After trying out your robot, try uncommenting the import at the top,
-		// and the next line:
-
-	 //setColors(Color.BLACK, Color.WHITE, Color.RED); // body,gun,radar
-	 //setColors(Color.BLACK, Color.WHITE, Color.RED);
 	 
 		// Set colors
-		
 		setBodyColor(Color.black);
 		setGunColor(Color.white);
 		setRadarColor(Color.red);
 		setBulletColor(Color.white);
 		setScanColor(Color.black);
 
-		// Robot main loop
-		while(true) {
-			// Replace the next 4 lines with any behavior you would like
-			ahead(100);
-			turnGunRight(360);
-			back(100);
-			turnGunRight(360);
-		}
+		
+			while (true) {
+				setTurnRight(5000);
+				setMaxVelocity(5);
+				ahead(10000);
+			}
 	}
 
 	/**
@@ -49,7 +39,7 @@ public class TricolorGuerreiro extends Robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
-		fire(1);
+		fire(2);
 	}
 
 	/**
@@ -57,14 +47,30 @@ public class TricolorGuerreiro extends Robot
 	 */
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-		back(10);
+		turnRight(e.getBearing());
+		//back(10);
 	}
 	
+	//	public void onHitBot
+
+	
+
 	/**
 	 * onHitWall: What to do when you hit a wall
 	 */
 	public void onHitWall(HitWallEvent e) {
 		// Replace the next line with any behavior you would like
-		back(20);
+		//turnGunRight(180);
+		//back(100);
+		turnLeft(180 - Math.abs(e.getBearing()));
 	}	
+	
+ 
+	
+	public void onWin(WinEvent e) {
+		for (int i = 0; i < 50; i++) {
+			turnRight(30);
+			turnLeft(30);
+		}
+	}
 }
