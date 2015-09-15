@@ -29,7 +29,9 @@ public class TricolorGuerreiro extends AdvancedRobot
 		while (true) {
 			setTurnRight(50000);
 			setMaxVelocity(6);
-			ahead(50000);				
+			ahead(50000);
+			setTurnLeft(50000);	
+			//back(50000);			
 		}
 	}
 
