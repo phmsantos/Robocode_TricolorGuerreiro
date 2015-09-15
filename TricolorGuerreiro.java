@@ -26,12 +26,11 @@ public class TricolorGuerreiro extends AdvancedRobot
 		setBulletColor(Color.white);
 		setScanColor(Color.black);
 
-		
-			while (true) {
-				setTurnRight(5000);
-				setMaxVelocity(5);
-				ahead(5000);				
-			}
+		while (true) {
+			setTurnRight(50000);
+			setMaxVelocity(6);
+			ahead(50000);				
+		}
 	}
 
 	/**
@@ -51,10 +50,6 @@ public class TricolorGuerreiro extends AdvancedRobot
 		//back(10);
 	}
 	
-	//	public void onHitBot
-
-	
-
 	/**
 	 * onHitWall: What to do when you hit a wall
 	 */
@@ -65,7 +60,10 @@ public class TricolorGuerreiro extends AdvancedRobot
 		turnLeft(210 - Math.abs(e.getBearing()));
 	}	
 	
- 
+ 	public void onHitRobot(HitRobotEvent e) {
+		back(20);
+		//turnRadarRight(e.getBearing());
+	}
 	
 	public void onWin(WinEvent e) {
 		for (int i = 0; i < 50; i++) {
