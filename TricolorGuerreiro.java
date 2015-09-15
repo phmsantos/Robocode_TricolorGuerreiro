@@ -27,6 +27,7 @@ public class TricolorGuerreiro extends Robot
 	 //setColors(Color.BLACK, Color.WHITE, Color.RED);
 	 
 		// Set colors
+		
 		setBodyColor(Color.black);
 		setGunColor(Color.white);
 		setRadarColor(Color.red);
