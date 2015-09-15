@@ -30,7 +30,7 @@ public class TricolorGuerreiro extends AdvancedRobot
 			while (true) {
 				setTurnRight(5000);
 				setMaxVelocity(5);
-				ahead(10000);
+				ahead(5000);				
 			}
 	}
 
@@ -62,7 +62,7 @@ public class TricolorGuerreiro extends AdvancedRobot
 		// Replace the next line with any behavior you would like
 		//turnGunRight(180);
 		//back(100);
-		turnLeft(180 - Math.abs(e.getBearing()));
+		turnLeft(210 - Math.abs(e.getBearing()));
 	}	
 	
  
